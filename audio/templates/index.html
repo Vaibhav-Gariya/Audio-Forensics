@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎵 Audio Enhancement & Forensics Tool</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <h1>🎵 Audio Enhancement & Forensics Tool</h1>
+      <p class="subtitle">Upload, Analyze, and Enhance Your Audio Files</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Upload Panel -->
+      <div class="panel">
+        <h2>📤 Upload Audio File</h2>
+
+        <div class="upload-area" id="uploadArea">
+          <div class="upload-icon">📁</div>
+          <p><strong>Drag & Drop</strong> your audio file here</p>
+          <p>or click to browse</p>
+          <p style="font-size: 14px; color: #999; margin-top: 15px">
+            Supported formats: MP3, WAV, OGG, FLAC (Max 50MB)
+          </p>
+        </div>
+
+        <input type="file" id="fileInput" accept=".wav,.mp3,.ogg,.flac" />
+
+        <button class="btn btn-primary" id="analyzeBtn" disabled>
+          🔍 Analyze Audio
+        </button>
+
+        <button class="btn btn-secondary" id="enhanceBtn" disabled>
+          ✨ Enhance Audio
+        </button>
+
+        <!-- Progress Bar -->
+        <div class="progress-container" id="progressContainer">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill">0%</div>
+          </div>
+        </div>
+
+        <!-- Status Message -->
+        <div class="status" id="status"></div>
+
+        <!-- Audio Player (kept for backward compatibility, but will be replaced by comparison) -->
+        <div class="audio-player" id="audioPlayer" style="display: none">
+          <h3>🎧 Enhanced Audio Preview</h3>
+          <audio id="audioElement" controls></audio>
+          <button
+            class="btn btn-primary"
+            id="downloadBtn"
+            style="margin-top: 15px"
+          >
+            💾 Download Enhanced Audio
+          </button>
+        </div>
+      </div>
+
+      <!-- Results Container (dynamically populated by JavaScript for Analysis) -->
+      <div id="resultsContainer"></div>
+
+      <!-- Comparison Container (dynamically populated by JavaScript for Enhancement) -->
+      <div id="comparisonContainer"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
